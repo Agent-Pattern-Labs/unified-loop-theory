@@ -1,2 +1,5 @@
 # unified-loop-theory
-The master loop to solve all loops. Unified field loop theory if you will
+
+A reusable Objective Trace Loop skill for turning quality goals into executable QA/eval loops.
+
+The shareable Codex skill lives at `skills/objective-trace-loop/`.

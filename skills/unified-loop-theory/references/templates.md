@@ -1,6 +1,82 @@
-# Objective Trace Loop Templates
+# Unified Loop Theory Templates
 
-Use these templates when scaffolding a concrete QA/eval loop. Prefer adapting them to existing repo conventions over introducing this exact structure everywhere.
+Use these templates when scaffolding a concrete Unified Loop Theory / Objective Trace Loop implementation. Prefer adapting them to existing repo conventions over introducing this exact structure everywhere.
+
+## Loop State
+
+```yaml
+loop_id: loop_<name>
+version: 0.1
+status: designing | running | judging | repairing | gated | complete | blocked
+
+objective_id: obj_<name>
+current_iteration: 1
+
+system:
+  name: <repo-app-product-or-process>
+  scope: <what is inside the loop>
+  out_of_scope:
+    - <what is intentionally excluded for now>
+
+objective:
+  desired_outcome: <what good means>
+  hard_constraints:
+    - <thing that must never happen>
+  quality_bars:
+    - <measurable or judgeable bar>
+  preference_direction:
+    prefer:
+      - <preferred behavior>
+    avoid:
+      - <undesired behavior>
+
+world:
+  assumptions:
+    - <current assumption about reality>
+  profiles:
+    - <user-data-api-ai-or-environment profile>
+  known_gaps:
+    - <what the world model does not capture yet>
+
+probes:
+  current:
+    probe_id: sc_<name>
+    purpose: <why this probe matters>
+  backlog:
+    - <next probe>
+
+trace:
+  latest_trace_id: tr_<name>
+  evidence_required:
+    - <input/action/output/log/screenshot/state/etc>
+  evidence_gaps:
+    - <missing evidence>
+
+judge:
+  required_checks:
+    - <deterministic check>
+  rubrics:
+    - <rubric or LLM-as-judge>
+  human_review_if:
+    - <condition>
+
+repair:
+  last_failed_layer: system | objective | world | probe | trace | judge | memory | gate | none
+  current_repair: <change being made>
+
+memory:
+  new_lessons:
+    - <lesson from latest trace>
+  regressions_added:
+    - <regression probe>
+  golden_examples_added:
+    - <golden trace>
+
+gate:
+  decision: ship | continue | warn | canary | block | human_review | redefine_objective
+  reason: <evidence-backed reason>
+  next_loop: <next objective/probe/repair>
+```
 
 ## Objective
 

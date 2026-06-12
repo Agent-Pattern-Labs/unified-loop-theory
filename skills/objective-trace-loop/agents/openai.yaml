@@ -1,4 +1,0 @@
-interface:
-  display_name: "Objective Trace Loop"
-  short_description: "Build QA loops from objectives and traces"
-  default_prompt: "Use $objective-trace-loop to design a practical QA/eval loop for this app flow."
